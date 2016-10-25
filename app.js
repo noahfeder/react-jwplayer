@@ -37,7 +37,7 @@ var JWPlayer = function (_Component) {
           _react2['default'].createElement(
             'h1',
             null,
-            'HELLOW WORLD'
+            'HELLO WORLD'
           )
         );
       }
