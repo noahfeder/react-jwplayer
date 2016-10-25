@@ -1,11 +1,11 @@
 {
   "name": "react-jwplayer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "React component for JWPlayer",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel ./src/JWPlayer.js -o app.js",
+    "build": "babel ./src/JWPlayer.js -o index.js",
     "prepublish": "npm run build"
   },
   "repository": "https://github.com/noahfeder/react-jwplayer.git",
