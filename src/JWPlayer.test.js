@@ -26,18 +26,21 @@ describe('Rendering a player without any props', () => {
   const app = render(<JWPlayer />);
 
   it('renders a 16:9 div without any props', () => {
-    expect(attr(app, '.jwplayer').style).toMatch(/padding-bottom:56\.25%/)
+    expect(attr(app, '.jwplayer').style).toMatch(/padding-bottom:56\.25%/);
   });
 
   it('renders a worthless iframe wihout a videoId prop', () => {
-    expect(attr(app, 'iframe').src).toMatch(/undefined/)
+    expect(attr(app, 'iframe').src).toMatch(/undefined/);
   });
 })
 
 
 it('renders a 4:3 div with appropriate props', () => {
   const app = render(<JWPlayer player='4' />);
-  expect(attr(app, '.jwplayer').style).toMatch(/padding-bottom:33\.33%/)
+  expect(attr(app, '.jwplayer').style).toMatch(/padding-bottom:75%/);
 });
 
-
+it('renders a video with appropriate props', () => {
+  const app = render(<JWPlayer videoId='yCP38IuY' />);
+  expect(attr(app, 'iframe').src).not.toMatch(/undefined/);
+});
