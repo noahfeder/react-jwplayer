@@ -20,6 +20,17 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var players = {
+  '16': {
+    id: '8EjS1km7',
+    padding: '56.25%'
+  },
+  '4': {
+    id: '7J2hxr9K',
+    padding: '33.33%'
+  }
+};
+
 var JWPlayer = function (_Component) {
   _inherits(JWPlayer, _Component);
 
@@ -35,12 +46,44 @@ var JWPlayer = function (_Component) {
       function render() {
         return _react2['default'].createElement(
           'div',
-          { style: this.props.wrapperStyle },
-          _react2['default'].createElement('iframe', _extends({ src: this.props.src }, this.props.iframeStyle))
+          {
+            style: Object.assign({
+              paddingBottom: players[this.props.player]['padding']
+            }, this.props.wrapper),
+            className: 'jwplayer'
+          },
+          _react2['default'].createElement('iframe', _extends({}, this.props.iframe, {
+            src: '//content.jwplatform.com/players/' + String(this.props.videoId) + '-' + String(players[this.props.player]['id']) + '.html'
+          }))
         );
       }
 
       return render;
+    }()
+  }], [{
+    key: 'defaultProps',
+    get: function () {
+      function get() {
+        return {
+          player: '16',
+          wrapper: {
+            position: 'relative',
+            overflow: 'hidden'
+          },
+          iframe: {
+            width: '100%',
+            height: '100%',
+            frameBorder: '0',
+            scrolling: 'auto',
+            style: {
+              position: 'absolute'
+            },
+            allowFullScreen: true
+          }
+        };
+      }
+
+      return get;
     }()
   }]);
 
@@ -48,22 +91,3 @@ var JWPlayer = function (_Component) {
 }(_react.Component);
 
 exports['default'] = JWPlayer;
-
-
-JWPlayer.defaultProps = {
-  wrapperStyle: {
-    position: 'relative',
-    paddingBottom: '56.25%',
-    overflow: 'hidden'
-  },
-  iframeStyle: {
-    width: '100%',
-    height: '100%',
-    frameBorder: '0',
-    scrolling: 'auto',
-    style: {
-      position: 'absolute'
-    },
-    allowFullScreen: true
-  }
-};
