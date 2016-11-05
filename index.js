@@ -27,7 +27,7 @@ var players = {
   },
   '4': {
     id: '7J2hxr9K',
-    padding: '33.33%'
+    padding: '75%'
   }
 };
 

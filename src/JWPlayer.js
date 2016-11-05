@@ -9,6 +9,14 @@ const players = {
     id: '7J2hxr9K',
     padding: '75%'
   },
+  '16loop': {
+    id: 'Zq6jSGRj',
+    padding: '56.25%'
+  },
+  '4loop': {
+    id: 'R4xwKxIJ',
+    padding: '75%'
+  },
 };
 
 export default class JWPlayer extends Component {

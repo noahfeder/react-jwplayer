@@ -4,7 +4,7 @@ A simple React component for JWPlayer embedded players
 
 ### Installation
 
-`npm install jwplayer -save`
+`npm i -S react-jwplayer`
 
 ### Usage
 
@@ -23,17 +23,26 @@ import ReactDOM from 'react-dom';
 import JWPlayer from 'react-jwplayer';
 
 ReactDOM.render(
-  <JWPlayer videoId="yCP38IuY" />,
+  <JWPlayer videoId="<your-id-here>" />,
   document.body
 );
 ```
 
 The default player is in 16:9 aspect ratio and uses the Glow design.
 
-To make a 4:3 player instead, just set a prop:
+Other players can be selected with the 'player' prop, which takes a string. 
+
+There are four valid options:
+
+```
+* '16' (default): A 16:9 player in the Glow theme.
+* '4': A 4:3
+ player in the Glow theme.
+* '16loop': An autostarting, looping, chromeless 16:9 player, suitable for background video.
+* '4loop': An autostarting, looping, chromeless 4:3 player, suitable for background video.
+```
 
 ```javascript
-//NOTE: player takes the STRING '4'.
 //This will output a 4:3 ratio player instead.
-<JWPlayer videoId="yCP38IuY" player="4" />
+<JWPlayer videoId="<your-id-here>" player="4" />
 ```
